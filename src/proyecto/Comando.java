@@ -20,7 +20,11 @@ public enum Comando {
     MODIFICAR_HORA(2, "Modifica la hora de la centralita"),
     CONSULTAR_PUERTA_GARAJE(3, "Consulta la puerta del garaje"),
     SUBIR_PUERTA_GARAJE(4, "Sube la puerta del garaje"),
-    BAJAR_PUERTA_GARAJE(5, "Baja la puerta del garaje");
+    BAJAR_PUERTA_GARAJE(5, "Baja la puerta del garaje"),
+    CONSULTAR_PERSIANA_SALON(6, "Consulta la ventana del salon"),
+    SUBIR_PERSIANA_SALON(7, "Sube la ventana del salon"),
+    BAJAR_PERSIANA_SALON(8, "Baja la ventana del salon"),
+    MEDIAALTURA_PERSIANA_SALON(9, "deja la ventana del salon a media altura");
     
     private int codigo;
     private String descripcion;
