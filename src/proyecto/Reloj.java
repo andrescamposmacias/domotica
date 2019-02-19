@@ -12,12 +12,12 @@ public class Reloj {
 
     public static void verHora() {
         LocalTime ahora = LocalTime.now();
-        System.out.println("Hora actual: " + ahora);
+        System.out.println("La hora es: " + ahora.getHour() + ":"+ ahora.getMinute()+ ":" + ahora.getSecond());
     }
     
     public static void verFecha(){
         LocalDate hoy = LocalDate.now();
-        System.out.println("Hoy es " + hoy);
+        System.out.println("La fecha es:  " + hoy);
     }
     
     
