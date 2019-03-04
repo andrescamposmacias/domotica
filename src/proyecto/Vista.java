@@ -16,6 +16,15 @@ public class Vista {
 
     private static Scanner teclado = new Scanner(System.in);
     private static int respuesta;
+    private static String usuario;
+    private static String contraseña;
+    
+    public static String login(){
+        
+        System.out.println("Introduce el usuario");
+        usuario = teclado.nextLine();
+        
+    }
 
     public static Comando menu() {
 
