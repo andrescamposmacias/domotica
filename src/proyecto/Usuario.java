@@ -30,6 +30,9 @@ public class Usuario {
         this.password = password;
     }
     
-    
+    public Usuario(String usu, String pass){
+        usuario = usu;
+        password = pass;
+    }
     
 }
