@@ -17,12 +17,19 @@ public class Vista {
     private static Scanner teclado = new Scanner(System.in);
     private static int respuesta;
     private static String usuario;
-    private static String contraseña;
+    private static String passwd;
     
     public static Usuario login(){
         
         System.out.println("Introduce el usuario");
         usuario = teclado.nextLine();
+        
+        System.out.println("Introduce la contraseña");
+        passwd = teclado.nextLine();
+        
+        Usuario usu = new Usuario(usuario, passwd);
+        
+        return usu;
         
     }
 
