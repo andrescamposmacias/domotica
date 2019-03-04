@@ -19,7 +19,7 @@ public class Vista {
     private static String usuario;
     private static String contraseña;
     
-    public static String login(){
+    public static Usuario login(){
         
         System.out.println("Introduce el usuario");
         usuario = teclado.nextLine();
