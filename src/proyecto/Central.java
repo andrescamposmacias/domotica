@@ -15,11 +15,11 @@ public class Central {
     private Estancia garaje;
     private Estancia salon;
     private Estancia dormitorio;
-    private Usuario usuario = new Usuario ("andres", "diegoCallate");
+    private static Usuario usuario = new Usuario ("andres", "diegoCallate");
     private LocalDate fechaInstalacion;
     private String identificador;
     
-   public boolean comprobacion(){
+   public static boolean comprobacionUsuario(){
        
        return usuario.equals(Vista.login());
     
