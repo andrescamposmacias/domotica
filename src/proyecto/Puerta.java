@@ -17,6 +17,17 @@ public class Puerta {
     //java crea un constructor por defecto
     //si no implementamos ninguno
 
+    public Puerta(boolean estado, int retardo) {
+        this.estado = estado;
+        this.retardo = retardo;
+    }
+    
+    public Puerta() {
+        this.estado = true;
+        this.retardo = 5;
+    }
+    
+
     public boolean isEstado() {
         return estado;
     }
