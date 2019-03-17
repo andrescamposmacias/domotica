@@ -5,6 +5,8 @@
  */
 package proyecto;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author andres
@@ -15,11 +17,17 @@ public class Main {
         
 //        Garaje g1 = new Garaje();
 //        System.out.println(g1);
+        LocalDate diaHoy = LocalDate.now();
+
 //        
-//        Garaje g2 = new Garaje(2, new Puerta(), 50);
+        Garaje pruebaGaraje = new Garaje(2, new Puerta(false, 3), 50);
 //        System.out.println(g2);
+
+
         
         Vista.menu();
+        
+        Central prueba = new Central(pruebaGaraje, new Salon (false), new Dormitorio(Orientacion.NORTE), diaHoy, "primera central creada" );
                 
     }
     
