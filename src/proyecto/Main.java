@@ -20,14 +20,14 @@ public class Main {
         LocalDate diaHoy = LocalDate.now();
 
 //        
-        Garaje pruebaGaraje = new Garaje(2, new Puerta(false, 3), 50);
+//        Garaje pruebaGaraje = new Garaje(2, new Puerta(false, 3), 50);
 //        System.out.println(g2);
 
 
         
         Vista.menu();
         
-        Central prueba = new Central(pruebaGaraje, new Salon (false), new Dormitorio(Orientacion.NORTE), diaHoy, "primera central creada" );
+        Central prueba = new Central(new Garaje(2, new Puerta(false, 3), 50), new Salon (false), new Dormitorio(Orientacion.NORTE), diaHoy, "primera central creada" );
                 
     }
     
