@@ -12,5 +12,11 @@ package proyecto;
 public class Dormitorio extends Habitaciones{
     
     private Orientacion orientacion;
+
+    public Dormitorio(Orientacion orientacion) {
+        this.orientacion = orientacion;
+    }
+    
+    
     
 }
