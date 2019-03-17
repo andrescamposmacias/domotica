@@ -36,32 +36,5 @@ public class Central {
         this.identificador = identificador;
     }
 
-    public Estancia getGaraje() {
-        return garaje;
-    }
-
-    public Estancia getSalon() {
-        return salon;
-    }
-
-    public Estancia getDormitorio() {
-        return dormitorio;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public LocalDate getFechaInstalacion() {
-        return fechaInstalacion;
-    }
-
-    public String getIdentificador() {
-        return identificador;
-    }
-
-    
-   
-   
          
 }
