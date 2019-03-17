@@ -24,5 +24,15 @@ public class Central {
        return usuario.equals(Vista.login());
     
    } 
+
+    public Central(Estancia garaje, Estancia salon, Estancia dormitorio, LocalDate fechaInstalacion, String identificador) {
+        this.garaje = garaje;
+        this.salon = salon;
+        this.dormitorio = dormitorio;
+        this.fechaInstalacion = fechaInstalacion;
+        this.identificador = identificador;
+    }
+   
+   
          
 }
