@@ -12,5 +12,11 @@ package proyecto;
 public class Salon extends Habitaciones {
     
     private boolean terraza;
+
+    public Salon(boolean terraza) {
+        this.terraza = terraza;
+    }
+    
+    
     
 }
