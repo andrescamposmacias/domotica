@@ -27,7 +27,7 @@ public class Main {
         
         Vista.menu();
         
-        Central prueba = new Central(new Garaje(2, new Puerta(false, 3), 50), new Salon (false), new Dormitorio(Orientacion.NORTE), diaHoy, "primera central creada" );
+        Central prueba = new Central(new Garaje(2, new Puerta(false, 3), 50), new Salon (false), new Dormitorio(Orientacion.NORTE), new Usuario("andres", "diego"), diaHoy, "primera central creada" );
                 
     }
     
