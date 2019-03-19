@@ -36,8 +36,9 @@ public class Vista {
     public static Comando menu() {
         int contador = 0;
         boolean continuar = false;
+        Central usuario = new Central (new Usuario ("andres", "diego"));
         do {
-            if (Central.comprobacionUsuario()) {
+            if (usuario.comprobacionUsuario()) {
                 boolean seguir = true;
                 do {
                     try {
@@ -249,13 +250,13 @@ public class Vista {
                 System.out.println("Ha introducido un usuario y/o contraseña incorrecta");
                 contador++;
                 continuar = true;
-                if(contador == 5){
-                    System.out.println("Has hecho 5 intentos fallidos, saliendo del sistema");
-                    break;
-                }
+                
             }
-        } while (continuar);
+        } while (continuar && contador != 5);
 
+        if(contador == 5){
+                    System.out.println("Has hecho 5 intentos fallidos, saliendo del sistema");
+                }
         return null;
     }
 }
