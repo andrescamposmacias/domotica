@@ -169,16 +169,15 @@ public class Central {
     }
     
     private void consultarEstadoPersianaSalon(){
-        //creo un switch para consultar el estado, si es 0 esta bajada
-        //si es 1, esta a media altura y si es 2 esta subida
+        //creo un switch para consultar el estado
         switch (salon.getPersiana().getEstado()) {
-            case 0:
+            case BAJADA:
                 System.out.println("La persiana del salon esta bajada");
                 break;
-            case 1:
+            case MEDIA_ALTURA:
                 System.out.println("La persiana del salon esta a media altura");
                 break;
-            case 2:
+            case SUBIDA:
                 System.out.println("La persiana del salon esta subida");
                 break;
             default:
@@ -188,36 +187,36 @@ public class Central {
     }
     
     private void subirPersianaSalon(){
-        //compruebo el estado de la persina, si es distinto de 2, entonces
-        //entra dentro del if y me cambia el estado a 2, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de SUBIDA, entonces
+        //entra dentro del if y me cambia el estado a SUBIDA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba subida
-        if(salon.getPersiana().getEstado() != 2){
-            salon.getPersiana().setEstado(2);
+        if(salon.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().SUBIDA){
+            salon.getPersiana().setEstado(EstadoPersiana.SUBIDA);
         }else{
-            System.out.println("La persiana del salon ya estaba subida");
+            System.out.println("La persiana del salon ya esta subida");
         }
     }
     
     private void bajarPersianaSalon(){
-        //compruebo el estado de la persina, si es distinto de 0, entonces
-        //entra dentro del if y me cambia el estado a 0, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de BAJADA, entonces
+        //entra dentro del if y me cambia el estado a BAJADA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba bajada
-        if(salon.getPersiana().getEstado() != 0){
-            salon.getPersiana().setEstado(0);
+        if(salon.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().BAJADA){
+            salon.getPersiana().setEstado(EstadoPersiana.BAJADA);
         }else{
-            System.out.println("La persiana del salon ya estaba bajada");
+            System.out.println("La persiana del salon ya esta bajada");
         }
         
     }
     
     private void mediaAlturaPersianaSalon(){
-        //compruebo el estado de la persina, si es distinto de 1, entonces
-        //entra dentro del if y me cambia el estado a 1, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de MEDIA_ALTURA, entonces
+        //entra dentro del if y me cambia el estado a MEDIA_ALTURA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba a media altura
-        if (salon.getPersiana().getEstado()!=1){
-            salon.getPersiana().setEstado(1);
+        if (salon.getPersiana().getEstado()!=dormitorio.getPersiana().getEstado().MEDIA_ALTURA){
+            salon.getPersiana().setEstado(EstadoPersiana.MEDIA_ALTURA);
         }else{
-            System.out.println("La persiana ya estaba a media altura");
+            System.out.println("La persiana ya esta a media altura");
         }
         
     }
@@ -226,7 +225,7 @@ public class Central {
         //primero compruebo que esten encendida, si esta encendida informo al usuario
         //sino enciendo la luz e informo de que ha encendido las luces
         if(salon.getLuz().isEstado()){
-            System.out.println("La luz del salon ya estaba encendida");
+            System.out.println("La luz del salon ya esta encendida");
         }else{
             salon.getLuz().setEstado(true);
             System.out.println("Se ha encendido la luz del salon");
@@ -241,7 +240,7 @@ public class Central {
             salon.getLuz().setEstado(false);
             System.out.println("se ha apagado la luz del salon");
         }else{
-            System.out.println("La luz del salon ya estaba apagada");
+            System.out.println("La luz del salon ya esta apagada");
         }
         
     }
@@ -255,7 +254,7 @@ public class Central {
             salon.getLuz().setEstado(false);
             dormitorio.getLuz().setEstado(false);
         }else{
-            System.out.println("Las luces del salon y del dormitorio ya estaban apagadas");
+            System.out.println("Las luces del salon y del dormitorio ya estan apagadas");
         }
     }
     
@@ -306,16 +305,15 @@ public class Central {
     }
     
     private void consultarPersianaDormitorio(){
-        //creo un switch para consultar el estado, si es 0 esta bajada
-        //si es 1, esta a media altura y si es 2 esta subida
+        //creo un switch para consultar el estado
         switch (dormitorio.getPersiana().getEstado()) {
-            case 0:
+            case BAJADA:
                 System.out.println("La persiana del dormitorio esta bajada");
                 break;
-            case 1:
+            case MEDIA_ALTURA:
                 System.out.println("La persiana del dormitorio esta a media altura");
                 break;
-            case 2:
+            case SUBIDA:
                 System.out.println("La persiana del dormitorio esta subida");
                 break;
             default:
@@ -325,35 +323,35 @@ public class Central {
     
     
     private void subirPersianaDormitorio(){
-        //compruebo el estado de la persina, si es distinto de 2, entonces
-        //entra dentro del if y me cambia el estado a 2, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de SUBIDA, entonces
+        //entra dentro del if y me cambia el estado a SUBIDA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba suibida
-        if(dormitorio.getPersiana().getEstado() != 2){
-            dormitorio.getPersiana().setEstado(2);
+        if(dormitorio.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().SUBIDA){
+            dormitorio.getPersiana().setEstado(EstadoPersiana.SUBIDA);
         }else{
-            System.out.println("La persiana del dormitorio ya estaba subida");
+            System.out.println("La persiana del dormitorio ya esta subida");
         }
     }
     
     private void bajarPersianaDormitorio(){
-        //compruebo el estado de la persina, si es distinto de 0, entonces
-        //entra dentro del if y me cambia el estado a 0, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de BAJADA, entonces
+        //entra dentro del if y me cambia el estado a BAJADA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba bajada
-        if(dormitorio.getPersiana().getEstado() != 0){
-            dormitorio.getPersiana().setEstado(0);
+        if(dormitorio.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().BAJADA){
+            dormitorio.getPersiana().setEstado(EstadoPersiana.BAJADA);
         }else{
-            System.out.println("La persiana del dormitorio ya estaba bajada");
+            System.out.println("La persiana del dormitorio ya esta bajada");
         }
     }
     
     private void mediaAlturaPersianaDormitorio(){
-        //compruebo el estado de la persina, si es distinto de 1, entonces
-        //entra dentro del if y me cambia el estado a 1, en otro caso le mandara
+        //compruebo el estado de la persina, si es distinto de MEDIA_ALTURA, entonces
+        //entra dentro del if y me cambia el estado a MEDIA_ALTURA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba a media altura
-        if(dormitorio.getPersiana().getEstado() != 1){
-            dormitorio.getPersiana().setEstado(1);
+        if(dormitorio.getPersiana().getEstado() != EstadoPersiana.MEDIA_ALTURA){
+            dormitorio.getPersiana().setEstado(EstadoPersiana.MEDIA_ALTURA);
         }else{
-            System.out.println("La persiana del dormitorio ya estaba a media altura");
+            System.out.println("La persiana del dormitorio ya esta a media altura");
         }
     }
     
@@ -385,7 +383,7 @@ public class Central {
             salon.getLuz().setEstado(false);
             dormitorio.getLuz().setEstado(false);
         }else{
-            System.out.println("Las luces del salon y del dormitorio ya estaban apagadas");
+            System.out.println("Las luces del salon y del dormitorio ya esta apagadas");
         }
     }
     
@@ -406,7 +404,7 @@ public class Central {
         //si es true, la camara ya estaba encendida e informara al usuario
         //en otro caso, cambiara al estado de true
         if(dormitorio.getCamara().isEstado()){
-            System.out.println("La camara del dormitorio ya estaba encendida");
+            System.out.println("La camara del dormitorio ya esta encendida");
         }else{
             dormitorio.getCamara().setEstado(true);
             System.out.println("Encendiendo la camara del dormitorio");
@@ -417,7 +415,7 @@ public class Central {
         //si es false, la camara ya estaba apagada e informara al usuario
         //en otro caso, cambiara al estado de false
         if(!dormitorio.getCamara().isEstado()){
-            System.out.println("La camara del dormitorio ya estaba encendida");
+            System.out.println("La camara del dormitorio ya esta encendida");
         }else{
             dormitorio.getCamara().setEstado(false);
             System.out.println("Encendiendo la camara del dormitorio");
