@@ -52,6 +52,10 @@ public class Central {
                 break;
             case BAJAR_PUERTA_GARAJE:
                 bajarGaraje();
+                break;
+            case CONSULTAR_PUERTA_GARAJE:
+                consultarEstadoGaraje();
+                break;
         }
     }
 
@@ -61,5 +65,9 @@ public class Central {
      
     private void bajarGaraje(){
         garaje.getPuertaGaraje().setEstado(false);
+    }
+    
+    private boolean consultarEstadoGaraje(){
+        return garaje.getPuertaGaraje().isEstado();
     }
 }
