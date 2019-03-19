@@ -20,7 +20,6 @@ public enum Comando {
     
     //comandos del reloj
     CONSULTAR_HORA(1, "Consulta la hora del sistema"),
-    MODIFICAR_HORA(2, "Modifica la hora de la centralita"),
     
     //comandos del garaje
     CONSULTAR_PUERTA_GARAJE(3, "Consulta la puerta del garaje"),
