@@ -58,7 +58,6 @@ public class Vista {
                                 System.out.println("Has entrado en las opciones del reloj");
                                 System.out.println("Elige entre unas de las opciones:");
                                 System.out.println("1.- Consultar hora");
-                                System.out.println("2.- Modificar la hora");
                                 respuesta = teclado.nextInt();
 
                                 switch (respuesta) {
@@ -235,10 +234,11 @@ public class Vista {
                                 return Comando.CONSULTAR_ESTADO_GENERAL;
 
                             case 4:
-                                System.out.println("Apagando sistema");
+                                System.out.println("Procediendo a apagar sistema");
+                                seguir = false;
                                 return Comando.APAGAR_SISTEMA;
                         }
-                        seguir = false;
+                        
 
                     } catch (InputMismatchException ime) {
                         System.out.println("Te has equivocado, vuelve a intentarlo");
