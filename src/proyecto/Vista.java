@@ -36,9 +36,9 @@ public class Vista {
     public static Comando menu() {
         int contador = 0;
         boolean continuar = false;
-        Central usuario = new Central (new Usuario ("andres", "diego"));
+        Central user = new Central (new Usuario ("andres", "diego"));
         do {
-            if (usuario.comprobacionUsuario()) {
+            if (user.comprobacionUsuario()) {
                 boolean seguir = true;
                 do {
                     try {
