@@ -11,21 +11,9 @@ package proyecto;
  */
 public enum Orientacion {
     
-    NORTE(true, "La orientacion es en el norte"),
-    SUR(true, "La orientacion es en el sur"),
-    ESTE(true, "La orientacion es en el este"),
-    OESTE(true, "La orientacion es en el oeste");
-    
-    private boolean posicion;
-    private String descripcion;
-
-    private Orientacion(boolean posicion, String descripcion) {
-        this.posicion = posicion;
-        this.descripcion = descripcion;
-    }
-
-    
-    
-    
-    
+    NORTE(),
+    SUR(),
+    ESTE(),
+    OESTE();
+     
 }
