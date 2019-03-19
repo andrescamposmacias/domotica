@@ -21,25 +21,4 @@ public class Reloj {
         System.out.println("La fecha es:  " + fecha);
     }
     
-    public static void modificarHora(){
-        Scanner teclado = new Scanner (System.in);
-        int horas;
-        int minutos;
-        int segundos;
-        
-        System.out.println("Introduce la hora que quieras");
-        horas = teclado.nextInt();
-        
-        System.out.println("Introduce los minutos que quieras");
-        minutos = teclado.nextInt();
-        
-        System.out.println("Introduce los segundos que quieras");
-        segundos = teclado.nextInt();
-        
-        hora = LocalTime.of(horas, minutos, segundos);
-        
-        System.out.println("La nueva hora es " + hora);
-    }
-    
-    
 }
