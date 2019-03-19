@@ -50,11 +50,16 @@ public class Central {
             case SUBIR_PUERTA_GARAJE:
                 subirGaraje();
                 break;
+            case BAJAR_PUERTA_GARAJE:
+                bajarGaraje();
         }
     }
 
     private void subirGaraje(){
+        garaje.getPuertaGaraje().setEstado(true);
+    }
+     
+    private void bajarGaraje(){
         garaje.getPuertaGaraje().setEstado(false);
     }
-         
 }
