@@ -64,8 +64,6 @@ public class Vista {
                                 switch (respuesta) {
                                     case 1:
                                         return Comando.CONSULTAR_HORA;
-                                    case 2:
-                                        return Comando.MODIFICAR_HORA;
                                     default:
                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                         break;
