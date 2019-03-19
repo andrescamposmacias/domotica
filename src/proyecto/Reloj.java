@@ -7,7 +7,6 @@ package proyecto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Scanner;
 
 public class Reloj {
     private static LocalTime hora = LocalTime.now();
