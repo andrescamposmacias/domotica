@@ -11,31 +11,22 @@ package proyecto;
  */
 public class Persiana {
     
-    private int estado;
+    private EstadoPersiana estado;
     private int largo;//cm
     private int ancho;//cm
 
-    public Persiana(int estado, int largo, int ancho) {
-        if(estado >= 0 || estado <= 2){
-            this.estado = estado;
-        }else{
-            this.estado = 0;
-        }
-        
+    public Persiana(EstadoPersiana estado, int largo, int ancho) {
+        this.estado = estado;
         this.largo = largo;
         this.ancho = ancho;
     }
 
-    public int getEstado() {
+    public EstadoPersiana getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
-        if(estado >= 0 || estado <= 2){
-            this.estado = estado;
-        }else{
-            this.estado = 0;
-        }
+    public void setEstado(EstadoPersiana estado) {
+        this.estado = estado;
     }
 
     public int getLargo() {
