@@ -12,9 +12,9 @@ import java.time.LocalDate;
  */
 public class Central {
     
-    private Estancia garaje;
-    private Estancia salon;
-    private Estancia dormitorio;
+    private Garaje garaje;
+    private Salon salon;
+    private Dormitorio dormitorio;
     private Usuario usuario;
     private LocalDate fechaInstalacion;
     private String identificador;
@@ -25,7 +25,7 @@ public class Central {
     
    } 
 
-    public Central(Estancia garaje, Estancia salon, Estancia dormitorio, Usuario usuario, LocalDate fechaInstalacion, String identificador) {
+    public Central(Garaje garaje, Salon salon, Dormitorio dormitorio, Usuario usuario, LocalDate fechaInstalacion, String identificador) {
         this.garaje = garaje;
         this.salon = salon;
         this.dormitorio = dormitorio;
@@ -38,7 +38,7 @@ public class Central {
         this.usuario = usu;
     }
     
-    public static void ejecutarOrden(Comando instrucciones){
+    public void ejecutarOrden(Comando instrucciones){
         switch(instrucciones){
             case APAGAR_SISTEMA:
                 System.out.println("Apagar sistema");
@@ -46,12 +46,15 @@ public class Central {
             case CONSULTAR_HORA:
                 Reloj.verFecha();
                 Reloj.verHora();
-                break;
-            case MODIFICAR_HORA:
-                Reloj.modificarHora();
+                break;        
+            case SUBIR_PUERTA_GARAJE:
+                subirGaraje();
                 break;
         }
     }
 
+    private void subirGaraje(){
+        garaje.getPuertaGaraje().setEstado(false);
+    }
          
 }
