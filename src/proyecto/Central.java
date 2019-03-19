@@ -19,11 +19,9 @@ public class Central {
     private LocalDate fechaInstalacion;
     private String identificador;
     
-   public static boolean comprobacionUsuario(){
+   public boolean comprobacionUsuario(){
        
-       Usuario aux = new Usuario ("Andres", "Diego");
-       
-       return aux.equals(Vista.login());
+       return this.usuario.equals(Vista.login());
     
    } 
 
@@ -34,6 +32,25 @@ public class Central {
         this.usuario = usuario;
         this.fechaInstalacion = fechaInstalacion;
         this.identificador = identificador;
+    }
+    
+    public Central(Usuario usu){
+        this.usuario = usu;
+    }
+    
+    public static void ejecutarOrden(Comando instrucciones){
+        switch(instrucciones){
+            case APAGAR_SISTEMA:
+                System.out.println("Apagar sistema");
+                break;
+            case CONSULTAR_HORA:
+                Reloj.verFecha();
+                Reloj.verHora();
+                break;
+            case MODIFICAR_HORA:
+                Reloj.modificarHora();
+                break;
+        }
     }
 
          
