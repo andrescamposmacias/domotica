@@ -18,6 +18,7 @@ public class Vista {
     private static int respuesta;
     private static String usuario;
     private static String passwd;
+    public static boolean continuar = true;
     
     public static Usuario login(){
         
@@ -34,11 +35,7 @@ public class Vista {
     }
 
     public static Comando menu() {
-        int contador = 0;
-        boolean continuar = false;
-        Central user = new Central (new Usuario ("andres", "diego"));
-        do {
-            if (user.comprobacionUsuario()) {
+
                 boolean seguir = true;
                 do {
                     try {
@@ -74,9 +71,6 @@ public class Vista {
                                 System.out.println("1.- Garaje");
                                 System.out.println("2.- Salón");
                                 System.out.println("3.- Dormitorio");
-                                System.out.println("4.- Despacho");
-                                System.out.println("5.- Cocina");
-                                System.out.println("6.- Aseo");
                                 respuesta = teclado.nextInt();
                                 switch (respuesta) {
                                     case 1:
@@ -133,9 +127,9 @@ public class Vista {
                                                     case 1:
                                                         return Comando.APAGAR_LUCES_MANUAL_SALON;
                                                     case 2:
-                                                        return Comando.APAGAR_LUCES_GENERAL_SALON;
+                                                        return Comando.APAGAR_LUCES_GENERAL;
                                                     case 3:
-                                                        return Comando.APAGAR_LUCES_ECO_SALON;
+                                                        return Comando.APAGAR_LUCES_ECO;
                                                     default:
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
@@ -190,9 +184,9 @@ public class Vista {
                                                     case 1:
                                                         return Comando.APAGAR_LUCES_MANUAL_DORMITORIO;
                                                     case 2:
-                                                        return Comando.APAGAR_LUCES_GENERAL_DORMITORIO;
+                                                        return Comando.APAGAR_LUCES_GENERAL;
                                                     case 3:
-                                                        return Comando.APAGAR_LUCES_ECO_DORMITORIO;
+                                                        return Comando.APAGAR_LUCES_ECO;
                                                     default:
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
@@ -211,21 +205,6 @@ public class Vista {
                                                 break;
                                         }
                                         break;
-
-                                    case 4:
-                                        System.out.println("Has entrado en las opciones del despacho");
-                                        System.out.println("por ahora no hay opciones");
-                                        break;
-
-                                    case 5:
-                                        System.out.println("Has entrado en las opciones del cocina");
-                                        System.out.println("por ahora no hay opciones");
-                                        break;
-
-                                    case 6:
-                                        System.out.println("Has entrado en las opciones del aseo");
-                                        System.out.println("por ahora no hay opciones");
-                                        break;
                                 }
                                 break;
 
@@ -235,26 +214,19 @@ public class Vista {
 
                             case 4:
                                 System.out.println("Procediendo a apagar sistema");
-                                seguir = false;
+                                continuar = false;
+                                
                                 return Comando.APAGAR_SISTEMA;
                         }
-                        
+                        seguir = false;
 
                     } catch (InputMismatchException ime) {
                         System.out.println("Te has equivocado, vuelve a intentarlo");
+                        teclado.nextLine();
                     }
                 } while (seguir);
-            } else {
-                System.out.println("Ha introducido un usuario y/o contraseña incorrecta");
-                contador++;
-                continuar = true;
-                
-            }
-        } while (continuar && contador != 5);
 
-        if(contador == 5){
-                    System.out.println("Has hecho 5 intentos fallidos, saliendo del sistema");
-                }
         return null;
     }
+    
 }
