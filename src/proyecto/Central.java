@@ -6,6 +6,8 @@
 package proyecto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 /**
  *
  * @author andres
@@ -40,9 +42,6 @@ public class Central {
     
     public void ejecutarOrden(Comando instrucciones){
         switch(instrucciones){
-            case APAGAR_SISTEMA:
-                System.out.println("Apagar sistema");
-                break;
             case CONSULTAR_HORA:
                 Reloj.verFecha();
                 Reloj.verHora();
@@ -74,11 +73,11 @@ public class Central {
             case APAGAR_LUCES_MANUAL_SALON:
                 apagarLucesManualSalon();
                 break;
-            case APAGAR_LUCES_GENERAL_SALON:
-                apagarLucesGeneralSalon();
+            case APAGAR_LUCES_GENERAL:
+                apagarLucesGeneral();
                 break;
-            case APAGAR_LUCES_ECO_SALON:
-                apagarLucesEcoSalon();
+            case APAGAR_LUCES_ECO:
+                apagarLucesEco();
                 break;
             case CONSULTAR_LUCES_SALON:
                 consultarLucesSalon();
@@ -110,12 +109,6 @@ public class Central {
             case APAGAR_LUCES_MANUAL_DORMITORIO:
                 apagarLucesManualDormitorio();
                 break;
-            case APAGAR_LUCES_GENERAL_DORMITORIO:
-                apagarLucesGeneralDormitorio();
-                break;
-            case APAGAR_LUCES_ECO_DORMITORIO:
-                apagarLucesEcoDormitorio();
-                break;
             case CONSULTAR_LUCES_DORMITORIO:
                 consultarLucesDormitorio();
                 break;
@@ -139,9 +132,9 @@ public class Central {
         //de que la puerta esta abierta
         if(!garaje.getPuertaGaraje().isEstado()){
             garaje.getPuertaGaraje().setEstado(true);
-            System.out.println("Se ha abierto la puerta del garaje");
+            System.out.println("Se ha abierto la puerta del garaje\n");
         }else{
-            System.out.println("La puerta del garaje ya se encuentra abierta");
+            System.out.println("La puerta del garaje ya se encuentra abierta\n");
         }
         
     }
@@ -151,9 +144,9 @@ public class Central {
         //de que la puerta esta cerrada
         if(garaje.getPuertaGaraje().isEstado()){
             garaje.getPuertaGaraje().setEstado(false);
-            System.out.println("Se ha cerrado la puerta del garaje");
+            System.out.println("Se ha cerrado la puerta del garaje\n");
         }else{
-            System.out.println("La puerta del garaje ya se encuentra cerrada");
+            System.out.println("La puerta del garaje ya se encuentra cerrada\n");
         }
         
     }
@@ -162,9 +155,9 @@ public class Central {
         //compruebo el estado, si es true la puerta esta abierta, sino es false
         //y la puerta esta cerrada
          if(garaje.getPuertaGaraje().isEstado()){
-             System.out.println("La puerta del garaje esta abierta");
+             System.out.println("La puerta del garaje esta abierta\n");
          }else{
-             System.out.println("La puerta del garaje esta cerrada");
+             System.out.println("La puerta del garaje esta cerrada\n");
          }
     }
     
@@ -172,13 +165,13 @@ public class Central {
         //creo un switch para consultar el estado
         switch (salon.getPersiana().getEstado()) {
             case BAJADA:
-                System.out.println("La persiana del salon esta bajada");
+                System.out.println("La persiana del salon esta bajada\n");
                 break;
             case MEDIA_ALTURA:
-                System.out.println("La persiana del salon esta a media altura");
+                System.out.println("La persiana del salon esta a media altura\n");
                 break;
             case SUBIDA:
-                System.out.println("La persiana del salon esta subida");
+                System.out.println("La persiana del salon esta subida\n");
                 break;
             default:
                 break;
@@ -190,10 +183,11 @@ public class Central {
         //compruebo el estado de la persina, si es distinto de SUBIDA, entonces
         //entra dentro del if y me cambia el estado a SUBIDA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba subida
-        if(salon.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().SUBIDA){
+        if(salon.getPersiana().getEstado() != salon.getPersiana().getEstado().SUBIDA){
             salon.getPersiana().setEstado(EstadoPersiana.SUBIDA);
+            System.out.println("Subiendo la persiana del salon\n");
         }else{
-            System.out.println("La persiana del salon ya esta subida");
+            System.out.println("La persiana del salon ya esta subida\n");
         }
     }
     
@@ -201,10 +195,11 @@ public class Central {
         //compruebo el estado de la persina, si es distinto de BAJADA, entonces
         //entra dentro del if y me cambia el estado a BAJADA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba bajada
-        if(salon.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().BAJADA){
+        if(salon.getPersiana().getEstado() != salon.getPersiana().getEstado().BAJADA){
             salon.getPersiana().setEstado(EstadoPersiana.BAJADA);
+            System.out.println("Bajando la persiana del salon\n");
         }else{
-            System.out.println("La persiana del salon ya esta bajada");
+            System.out.println("La persiana del salon ya esta bajada\n");
         }
         
     }
@@ -213,10 +208,11 @@ public class Central {
         //compruebo el estado de la persina, si es distinto de MEDIA_ALTURA, entonces
         //entra dentro del if y me cambia el estado a MEDIA_ALTURA, en otro caso le mandara
         //un mensaje al usuario indicando que la persina ya estaba a media altura
-        if (salon.getPersiana().getEstado()!=dormitorio.getPersiana().getEstado().MEDIA_ALTURA){
+        if (salon.getPersiana().getEstado()!=salon.getPersiana().getEstado().MEDIA_ALTURA){
             salon.getPersiana().setEstado(EstadoPersiana.MEDIA_ALTURA);
+            System.out.println("Poniendo la persiana del salon a media altura\n");
         }else{
-            System.out.println("La persiana ya esta a media altura");
+            System.out.println("La persiana ya esta a media altura\n");
         }
         
     }
@@ -224,11 +220,12 @@ public class Central {
     private void encenderLucesSalon(){
         //primero compruebo que esten encendida, si esta encendida informo al usuario
         //sino enciendo la luz e informo de que ha encendido las luces
-        if(salon.getLuz().isEstado()){
-            System.out.println("La luz del salon ya esta encendida");
-        }else{
+        if(!salon.getLuz().isEstado()){
             salon.getLuz().setEstado(true);
-            System.out.println("Se ha encendido la luz del salon");
+            System.out.println("Se ha encendido la luz del salon\n");
+            
+        }else{
+            System.out.println("La luz del salon ya estaba encendida\n");  
         }
         
     }
@@ -236,61 +233,118 @@ public class Central {
     private void apagarLucesManualSalon(){
         //primero compruebo que esten encendida, si esta encendida la apago e
         //informo al usuario, sino informo al usuario de que ya estaba apagada
-        if(!salon.getLuz().isEstado()){
+        if(salon.getLuz().isEstado()){
             salon.getLuz().setEstado(false);
-            System.out.println("se ha apagado la luz del salon");
+            System.out.println("se ha apagado la luz del salon\n");
         }else{
-            System.out.println("La luz del salon ya esta apagada");
+            System.out.println("La luz del salon ya esta apagada\n");
         }
         
     }
     
     
-    private void apagarLucesGeneralSalon(){
+    private void apagarLucesGeneral(){
         //si la luz del salon o del dormitorio es true, entra dentro del true, y cambia
         //ambos estado a false, sino entra en el else y le indica al usuario que ambas luces
         //ya estaban apagadas
-        if(salon.getLuz().isEstado() || dormitorio.getLuz().isEstado()){
-            salon.getLuz().setEstado(false);
-            dormitorio.getLuz().setEstado(false);
-        }else{
-            System.out.println("Las luces del salon y del dormitorio ya estan apagadas");
+        
+        if(!salon.getLuz().isEstado() && !dormitorio.getLuz().isEstado()){
+            System.out.println("Las luces del salon y del dormitorio ya estan apagadas\n");
         }
+        
+        if(salon.getLuz().isEstado()){
+            salon.getLuz().setEstado(false);
+            System.out.println("Apagando las luces del salon\n");
+        }else{
+            System.out.println("Las lueces del salon ya estan apagadas");
+        }
+        if (dormitorio.getLuz().isEstado()){           
+            dormitorio.getLuz().setEstado(false);
+            System.out.println("Apagando las luces del dormitorio\n");
+        }else{
+            System.out.println("Las luces del dormitorio ya estan apagadas");
+        }
+   
     }
     
-    private void apagarLucesEcoSalon(){
-        
-    }
     
     private void consultarLucesSalon(){
         //si el estado de la luz es true, esta encendida, sino esta apagada
         //e informo al usuario
         if(salon.getLuz().isEstado()){
-            System.out.println("La luz del salon esta encendida");
+            System.out.println("La luz del salon esta encendida\n");
         }else{
-            System.out.println("La luz del salon esta apagada");
+            System.out.println("La luz del salon esta apagada\n");
         }
     }
     
     private void encenderVigilanciaSalon(){
         //si el estado es true, entonces la camara ya estaba encendida
         //e informo al usuario, en caso contrario, pongo el estado a true
+        
+        LocalTime horaManiana = LocalTime.of(8, 00);
+        LocalTime horaTarde = LocalTime.of(18, 00);
+        LocalTime ahora = LocalTime.now();
+        
         if(salon.getCamara().isEstado()){
-            System.out.println("La camara del salon esta encendida");
+            System.out.println("La camara del salon ya esta encendida\n");
         }else{
             salon.getCamara().setEstado(true);
-            System.out.println("Encendiendo la camara del salon");
+            System.out.println("Encendiendo la camara del salon\n");
+        }
+        if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
+            if(salon.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
+                if(!salon.getLuz().isEstado()){
+                    salon.getLuz().setEstado(true);
+                    System.out.println("Encendiendo luz para poder grabar bien");
+                }
+            }
+        }
+        
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
+            if (!salon.getLuz().isEstado()) {
+                salon.getLuz().setEstado(true);
+                System.out.println("Encendiendo la luz");
+            }
         }
     }
     
     private void apagarVigilanciaSalon(){
         //si el estado es false, entonces la camara ya estaba apagada
         //e informo al usuario, en caso contrario, pongo el estado a false
+        
+        LocalTime horaManiana = LocalTime.of(8, 00);
+        LocalTime horaTarde = LocalTime.of(18, 00);
+        LocalTime ahora = LocalTime.now();
+        
         if(!salon.getCamara().isEstado()){
-            System.out.println("La camara del salon esta apagada");
+            System.out.println("La camara del salon ya estaba apagada\n");
         }else{
             salon.getCamara().setEstado(false);
-            System.out.println("Apagando la camara del salon");
+            System.out.println("Se ha apagado la camara del salon\n");
+        }
+        if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
+            if(salon.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
+                if(salon.getLuz().isEstado()){
+                    salon.getLuz().setEstado(false);
+                    System.out.println("Se ha apagado luz del salon");
+                }
+            }
+        }
+        
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
+            if (salon.getLuz().isEstado()) {
+                salon.getLuz().setEstado(false);
+                System.out.println("Apagando la luz");
+            }
         }
     }
     
@@ -298,9 +352,9 @@ public class Central {
         //compruebo el estado de la camara, si es true esta encendida y le mando un mensaje
         //al usuario, en otro caso es false y le mando un mensaje de que esta  apagada
         if(salon.getCamara().isEstado()){
-            System.out.println("La camara del salon esta encendida");
+            System.out.println("La camara del salon esta encendida\n");
         }else{
-            System.out.println("La camara del salon esta apagada");
+            System.out.println("La camara del salon esta apagada\n");
         }
     }
     
@@ -308,13 +362,13 @@ public class Central {
         //creo un switch para consultar el estado
         switch (dormitorio.getPersiana().getEstado()) {
             case BAJADA:
-                System.out.println("La persiana del dormitorio esta bajada");
+                System.out.println("La persiana del dormitorio esta bajada\n");
                 break;
             case MEDIA_ALTURA:
-                System.out.println("La persiana del dormitorio esta a media altura");
+                System.out.println("La persiana del dormitorio esta a media altura\n");
                 break;
             case SUBIDA:
-                System.out.println("La persiana del dormitorio esta subida");
+                System.out.println("La persiana del dormitorio esta subida\n");
                 break;
             default:
                 break;
@@ -328,8 +382,9 @@ public class Central {
         //un mensaje al usuario indicando que la persina ya estaba suibida
         if(dormitorio.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().SUBIDA){
             dormitorio.getPersiana().setEstado(EstadoPersiana.SUBIDA);
+            System.out.println("Subiendo la persiana del dormitorio\n");
         }else{
-            System.out.println("La persiana del dormitorio ya esta subida");
+            System.out.println("La persiana del dormitorio ya esta subida\n");
         }
     }
     
@@ -339,8 +394,9 @@ public class Central {
         //un mensaje al usuario indicando que la persina ya estaba bajada
         if(dormitorio.getPersiana().getEstado() != dormitorio.getPersiana().getEstado().BAJADA){
             dormitorio.getPersiana().setEstado(EstadoPersiana.BAJADA);
+            System.out.println("Bajando la persiana del dormitorio\n");
         }else{
-            System.out.println("La persiana del dormitorio ya esta bajada");
+            System.out.println("La persiana del dormitorio ya esta bajada\n");
         }
     }
     
@@ -350,8 +406,9 @@ public class Central {
         //un mensaje al usuario indicando que la persina ya estaba a media altura
         if(dormitorio.getPersiana().getEstado() != EstadoPersiana.MEDIA_ALTURA){
             dormitorio.getPersiana().setEstado(EstadoPersiana.MEDIA_ALTURA);
+            System.out.println("Poniendo la persiana del dormitorio a media altura\n");
         }else{
-            System.out.println("La persiana del dormitorio ya esta a media altura");
+            System.out.println("La persiana del dormitorio ya esta a media altura\n");
         }
     }
     
@@ -359,9 +416,10 @@ public class Central {
         //compruebo que las luces son true, si son true le muestro un mensaje
         //al usuario indicando que ya estaban encendida, sino las apago
         if(dormitorio.getLuz().isEstado()){
-            System.out.println("La luz del dormitorio esta encendida");
+            System.out.println("La luz del dormitorio esta encendida\n");
         }else{
             dormitorio.getLuz().setEstado(true);
+            System.out.println("Encendiendo luz del dormitorio\n");
         }
     }
     
@@ -369,66 +427,138 @@ public class Central {
         //compruebo que las luces son false, si son false le muestro un mensaje
         //al usuario indicando que ya estaban apagadas, sino las enciendo
         if(!dormitorio.getLuz().isEstado()){
-            System.out.println("La luz del dormitorio esta encendida");
+            System.out.println("La luz del dormitorio esta apagada\n");
         }else{
             dormitorio.getLuz().setEstado(false);
+            System.out.println("Apagando luz del dormitorio\n");
         }
     }
     
-    private void apagarLucesGeneralDormitorio(){
-        //compruebo que las luces del salon y del dormitorio sean true
-        //si son true, los cambio a false, en caso de que ambos sean true
-        //le saltara un mensaje al usuario indicando que las luces ya estaban apagadas
-        if(salon.getLuz().isEstado() || dormitorio.getLuz().isEstado()){
-            salon.getLuz().setEstado(false);
-            dormitorio.getLuz().setEstado(false);
-        }else{
-            System.out.println("Las luces del salon y del dormitorio ya esta apagadas");
+    private void apagarLucesEco(){
+        LocalTime horaManiana = LocalTime.of(8, 00);
+        LocalTime horaTarde = LocalTime.of(18, 00);
+        LocalTime ahora = LocalTime.now();
+        if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
+            if (salon.getPersiana().getEstado() == salon.getPersiana().getEstado().SUBIDA) {
+                System.out.println("La persiana del salon está subida \n");
+                if (salon.getLuz().isEstado()) {
+                    salon.getLuz().setEstado(false);
+                    System.out.println("La luz del salon esta encendida, procediendo a su apagado\n");
+                } else {
+                    System.out.println("La luz del salon ya se encuentra apagada \n");
+                }
+            } else {
+                System.out.println("La persiana del salon se encuentra bajada \n");
+            }
+            if (dormitorio.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().SUBIDA) {
+                System.out.println("La persiana del dormitorio está subida \n");
+                if (dormitorio.getLuz().isEstado()) {
+                    System.out.println("La luz del dormitorio esta encendida, procediendo a su apagado\n");
+                    dormitorio.getLuz().setEstado(false);
+                    System.out.println("el estado de la luz del dormitorio es " + dormitorio.getLuz().isEstado());
+                } else {
+                    System.out.println("La luz del dormitorio ya se encuentra apagada \n");
+                }
+            } else {
+                System.out.println("La persiana del dormitorio se encuentra bajada \n");
+            }
+
+        } else {
+            System.out.println("Está fuera del rango del horario de apagado eco");
         }
-    }
-    
-    private void apagarLucesEcoDormitorio(){
         
     }
     
     private void consultarLucesDormitorio(){
         //si es true, las luces estaban encendida, sino estan apagadas
         if(salon.getLuz().isEstado()){
-            System.out.println("La luz del dormitorio esta encendida");
+            System.out.println("La luz del dormitorio esta encendida\n");
         }else{
-            System.out.println("La luz del dormitorio esta apagada");
+            System.out.println("La luz del dormitorio esta apagada\n");
         }
     }
     
     private void encenderVigilanciaDormitorio(){
         //si es true, la camara ya estaba encendida e informara al usuario
         //en otro caso, cambiara al estado de true
+        LocalTime horaManiana = LocalTime.of(8, 00);
+        LocalTime horaTarde = LocalTime.of(18, 00);
+        
+        LocalTime ahora = LocalTime.now();
+   
+        
         if(dormitorio.getCamara().isEstado()){
-            System.out.println("La camara del dormitorio ya esta encendida");
+            System.out.println("La camara del dormitorio ya esta encendida\n");
         }else{
             dormitorio.getCamara().setEstado(true);
-            System.out.println("Encendiendo la camara del dormitorio");
+            System.out.println("Encendiendo la camara del dormitorio\n");
         }
+        if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
+            if(dormitorio.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
+                if(!dormitorio.getLuz().isEstado()){
+                    dormitorio.getLuz().setEstado(true);
+                    System.out.println("Encendiendo luz para poder grabar bien");
+                }
+            }
+        }
+        
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
+            if (!dormitorio.getLuz().isEstado()) {
+                dormitorio.getLuz().setEstado(true);
+                System.out.println("Encendiendo luz para poder grabar bien");
+            }
+        }
+        
     }
     
     private void apagarVigilanciaDormitorio(){
         //si es false, la camara ya estaba apagada e informara al usuario
         //en otro caso, cambiara al estado de false
+        
+        LocalTime horaManiana = LocalTime.of(8, 00);
+        LocalTime horaTarde = LocalTime.of(18, 00);
+        LocalTime ahora = LocalTime.now();
+        
         if(!dormitorio.getCamara().isEstado()){
-            System.out.println("La camara del dormitorio ya esta encendida");
+            System.out.println("La camara del dormitorio ya estaba apagada\n");
         }else{
             dormitorio.getCamara().setEstado(false);
-            System.out.println("Encendiendo la camara del dormitorio");
+            System.out.println("Se ha apagado la camara del dormitorio\n");
         }
+        if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
+            if(dormitorio.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
+                if(dormitorio.getLuz().isEstado()){
+                    dormitorio.getLuz().setEstado(false);
+                    System.out.println("Se ha apagado luz del dormitorio");
+                }
+            }
+        }
+        
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
+            if (dormitorio.getLuz().isEstado()) {
+                dormitorio.getLuz().setEstado(false);
+                System.out.println("Apagando la luz");
+            }
+        }
+        
+        
     }
     
     private void consultarVigilanciaDormitorio(){
         //si es true la camara esta encendida, en otro caso sera false
         //por lo que la camara esta apagada
         if(dormitorio.getCamara().isEstado()){
-            System.out.println("La camara esta encendida");
+            System.out.println("La camara esta encendida\n");
         }else{
-            System.out.println("La camara esta apagada");
+            System.out.println("La camara esta apagada \n");
         }
     }
     
@@ -436,6 +566,9 @@ public class Central {
         //los metodos de fecha y hora
         Reloj.verFecha();
         Reloj.verHora();
+        
+        //metodo para consultar la puerta del garaje
+        consultarEstadoGaraje();
         
         //los metodos de consulta del dormitorio
         consultarVigilanciaDormitorio();
