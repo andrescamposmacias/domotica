@@ -279,19 +279,23 @@ public class Central {
     }
     
     private void encenderVigilanciaSalon(){
-        //si el estado es true, entonces la camara ya estaba encendida
-        //e informo al usuario, en caso contrario, pongo el estado a true
+        //creo 3 variables LocalTime, horaManiana para establecer la hora de la mañana
+        //horaTarde para estableces la hora fin del metodo, y ahora, para saber la hora a la que estamos
         
         LocalTime horaManiana = LocalTime.of(8, 00);
         LocalTime horaTarde = LocalTime.of(18, 00);
         LocalTime ahora = LocalTime.now();
         
+        //primero compruebo que la camara esta encendida, porque si esta encendida no tengo
+        //que encenderla
         if(salon.getCamara().isEstado()){
             System.out.println("La camara del salon ya esta encendida\n");
         }else{
             salon.getCamara().setEstado(true);
             System.out.println("Encendiendo la camara del salon\n");
         }
+        //ahora creo un if, si esta despues de las 8 y antes de las 18, y si la persiana no esta bajada
+        //y la luz no esta encendida, la enciende
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if(salon.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
                 if(!salon.getLuz().isEstado()){
@@ -300,11 +304,14 @@ public class Central {
                 }
             }
         }
-        
+        //creo 3 objetos LocalDateTime, el fechaYHora para guardar el dia y la hora de la que se ejecuta el programa
+        //fechaDeNoche donde guarda el dia de hoy y la hora de las 20, y fechaDeManiana que suma 12h al objeto de fechaDeNoche
         LocalDateTime fechaYHora = LocalDateTime.now();
-        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeNoche=LocalDateTime.of(LocalDate.now(), LocalTime.of(20, 00));
         LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
         
+        //y aqui compruebo que hoy es despues de las 22 y antes de las 8 del dia siguiente
+        //y si la luz esta apagada, la enciende
         if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
             if (!salon.getLuz().isEstado()) {
                 salon.getLuz().setEstado(true);
@@ -314,19 +321,24 @@ public class Central {
     }
     
     private void apagarVigilanciaSalon(){
-        //si el estado es false, entonces la camara ya estaba apagada
-        //e informo al usuario, en caso contrario, pongo el estado a false
+        //creo 3 variables LocalTime, horaManiana para establecer la hora de la mañana
+        //horaTarde para estableces la hora fin del metodo, y ahora, para saber la hora a la que estamos
         
         LocalTime horaManiana = LocalTime.of(8, 00);
         LocalTime horaTarde = LocalTime.of(18, 00);
         LocalTime ahora = LocalTime.now();
         
+        //primero compruebo que la camara esta apagada, porque si esta apagada no tengo
+        //que apagarla
         if(!salon.getCamara().isEstado()){
             System.out.println("La camara del salon ya estaba apagada\n");
         }else{
             salon.getCamara().setEstado(false);
             System.out.println("Se ha apagado la camara del salon\n");
         }
+        
+        //ahora creo un if, si esta despues de las 8 y antes de las 18, y si la persiana no esta bajada
+        //y la luz no esta apagada, la apaga
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if(salon.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
                 if(salon.getLuz().isEstado()){
@@ -336,10 +348,14 @@ public class Central {
             }
         }
         
+        //creo 3 objetos LocalDateTime, el fechaYHora para guardar el dia y la hora de la que se ejecuta el programa
+        //fechaDeNoche donde guarda el dia de hoy y la hora de las 20, y fechaDeManiana que suma 12h al objeto de fechaDeNoche
         LocalDateTime fechaYHora = LocalDateTime.now();
-        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeNoche=LocalDateTime.of(LocalDate.now(), LocalTime.of(20, 00));
         LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
         
+        //y aqui compruebo que hoy es despues de las 22 y antes de las 8 del dia siguiente
+        //y si la luz esta encendida, la apaga
         if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
             if (salon.getLuz().isEstado()) {
                 salon.getLuz().setEstado(false);
@@ -435,9 +451,14 @@ public class Central {
     }
     
     private void apagarLucesEco(){
+        //creo 3 objetos LocalTime
         LocalTime horaManiana = LocalTime.of(8, 00);
         LocalTime horaTarde = LocalTime.of(18, 00);
         LocalTime ahora = LocalTime.now();
+        
+        //si horaManiana es antes que ahora y horaTarde despues de ahora comprueba que las persinas entra dentro
+        // del if y compruebas que la persiana no esten subidas, y por ultimo comprueba que la luz este encendida, si esta
+        //encendida la apaga
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if (salon.getPersiana().getEstado() == salon.getPersiana().getEstado().SUBIDA) {
                 System.out.println("La persiana del salon está subida \n");
@@ -455,7 +476,6 @@ public class Central {
                 if (dormitorio.getLuz().isEstado()) {
                     System.out.println("La luz del dormitorio esta encendida, procediendo a su apagado\n");
                     dormitorio.getLuz().setEstado(false);
-                    System.out.println("el estado de la luz del dormitorio es " + dormitorio.getLuz().isEstado());
                 } else {
                     System.out.println("La luz del dormitorio ya se encuentra apagada \n");
                 }
@@ -471,7 +491,7 @@ public class Central {
     
     private void consultarLucesDormitorio(){
         //si es true, las luces estaban encendida, sino estan apagadas
-        if(salon.getLuz().isEstado()){
+        if(dormitorio.getLuz().isEstado()){
             System.out.println("La luz del dormitorio esta encendida\n");
         }else{
             System.out.println("La luz del dormitorio esta apagada\n");
@@ -479,20 +499,24 @@ public class Central {
     }
     
     private void encenderVigilanciaDormitorio(){
-        //si es true, la camara ya estaba encendida e informara al usuario
-        //en otro caso, cambiara al estado de true
+        //creo 3 variables LocalTime, horaManiana para establecer la hora de la mañana
+        //horaTarde para estableces la hora fin del metodo, y ahora, para saber la hora a la que estamos
         LocalTime horaManiana = LocalTime.of(8, 00);
         LocalTime horaTarde = LocalTime.of(18, 00);
         
         LocalTime ahora = LocalTime.now();
    
-        
+        //primero compruebo que la camara esta encendida, porque si esta encendida no tengo
+        //que encenderla
         if(dormitorio.getCamara().isEstado()){
             System.out.println("La camara del dormitorio ya esta encendida\n");
         }else{
             dormitorio.getCamara().setEstado(true);
             System.out.println("Encendiendo la camara del dormitorio\n");
         }
+        
+        //ahora creo un if, si esta despues de las 8 y antes de las 18, y si la persiana no esta bajada
+        //y la luz no esta encendida, la enciende
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if(dormitorio.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
                 if(!dormitorio.getLuz().isEstado()){
@@ -502,9 +526,14 @@ public class Central {
             }
         }
         
+        //creo 3 objetos LocalDateTime, el fechaYHora para guardar el dia y la hora de la que se ejecuta el programa
+        //fechaDeNoche donde guarda el dia de hoy y la hora de las 20, y fechaDeManiana que suma 12h al objeto de fechaDeNoche
         LocalDateTime fechaYHora = LocalDateTime.now();
-        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeNoche=LocalDateTime.of(LocalDate.now(), LocalTime.of(20, 00));
         LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        //y aqui compruebo que hoy es despues de las 22 y antes de las 8 del dia siguiente
+        //y si la luz esta apagada, la enciende
         
         if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
             if (!dormitorio.getLuz().isEstado()) {
@@ -516,12 +545,15 @@ public class Central {
     }
     
     private void apagarVigilanciaDormitorio(){
-        //si es false, la camara ya estaba apagada e informara al usuario
-        //en otro caso, cambiara al estado de false
+        //creo 3 variables LocalTime, horaManiana para establecer la hora de la mañana
+        //horaTarde para estableces la hora fin del metodo, y ahora, para saber la hora a la que estamos
         
         LocalTime horaManiana = LocalTime.of(8, 00);
         LocalTime horaTarde = LocalTime.of(18, 00);
         LocalTime ahora = LocalTime.now();
+        
+        //primero compruebo que la camara esta apagada, porque si esta apagada no tengo
+        //que apagarla
         
         if(!dormitorio.getCamara().isEstado()){
             System.out.println("La camara del dormitorio ya estaba apagada\n");
@@ -529,6 +561,8 @@ public class Central {
             dormitorio.getCamara().setEstado(false);
             System.out.println("Se ha apagado la camara del dormitorio\n");
         }
+        //ahora creo un if, si esta despues de las 8 y antes de las 18, y si la persiana no esta bajada
+        //y la luz no esta apagada, la apaga
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if(dormitorio.getPersiana().getEstado() == dormitorio.getPersiana().getEstado().BAJADA){
                 if(dormitorio.getLuz().isEstado()){
@@ -538,9 +572,14 @@ public class Central {
             }
         }
         
+        //creo 3 objetos LocalDateTime, el fechaYHora para guardar el dia y la hora de la que se ejecuta el programa
+        //fechaDeNoche donde guarda el dia de hoy y la hora de las 20, y fechaDeManiana que suma 12h al objeto de fechaDeNoche
         LocalDateTime fechaYHora = LocalDateTime.now();
-        LocalDateTime fechaDeNoche=LocalDateTime.parse("2019-03-20T22:00");
+        LocalDateTime fechaDeNoche=LocalDateTime.of(LocalDate.now(), LocalTime.of(20, 00));
         LocalDateTime fechaDeManania = fechaDeNoche.plusHours(12);
+        
+        //y aqui compruebo que hoy es despues de las 22 y antes de las 8 del dia siguiente
+        //y si la luz esta encendida, la apaga
         
         if (fechaDeNoche.isBefore(fechaYHora) && fechaDeManania.isAfter(fechaYHora)) {
             if (dormitorio.getLuz().isEstado()) {
