@@ -55,11 +55,14 @@ public class Vista {
                                 System.out.println("Has entrado en las opciones del reloj");
                                 System.out.println("Elige entre unas de las opciones:");
                                 System.out.println("1.- Consultar hora");
+                                System.out.println("2.- Estado general de la vivienda");
                                 respuesta = teclado.nextInt();
 
                                 switch (respuesta) {
                                     case 1:
                                         return Comando.CONSULTAR_HORA;
+                                    case 2:                                               
+                                        return Comando.CONSULTAR_ESTADO_GENERAL;
                                     default:
                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                         break;
@@ -71,6 +74,7 @@ public class Vista {
                                 System.out.println("1.- Garaje");
                                 System.out.println("2.- Salón");
                                 System.out.println("3.- Dormitorio");
+                                System.out.println("4.- Estado general de la vivienda");
                                 respuesta = teclado.nextInt();
                                 switch (respuesta) {
                                     case 1:
@@ -79,6 +83,7 @@ public class Vista {
                                         System.out.println("1.- Consultar la puerta");
                                         System.out.println("2.- Subir la puerta del garaje");
                                         System.out.println("3.- Bajar la puerta del garaje");
+                                        System.out.println("4.- Estado general de la vivienda");
                                         respuesta = teclado.nextInt();
 
                                         switch (respuesta) {
@@ -88,6 +93,8 @@ public class Vista {
                                                 return Comando.SUBIR_PUERTA_GARAJE;
                                             case 3:
                                                 return Comando.BAJAR_PUERTA_GARAJE;
+                                            case 4:                                               
+                                                return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
@@ -105,6 +112,7 @@ public class Vista {
                                         System.out.println("7.- Iniciar vigilancia");
                                         System.out.println("8.- Detener vigilancia");
                                         System.out.println("9.- Consultar estado de la vigilancia");
+                                        System.out.println("10.- Estado general de la vivienda");
                                         respuesta = teclado.nextInt();
                                         switch (respuesta) {
                                             case 1:
@@ -120,7 +128,8 @@ public class Vista {
                                                 System.out.println("Elige entre unas de las opciones:");
                                                 System.out.println("1.- Apagado de las luces del salón");
                                                 System.out.println("2.- Apagado general de la casa");
-                                                System.out.println("3.- Apagado eco (solo funciona entre las 8 de la mañana y las 6 de la tarde");
+                                                System.out.println("3.- Apagado eco (solo funciona entre las 8 de la mañana y las 6 de la tarde)");
+                                                System.out.println("4.- Estado general de la vivienda");
                                                 respuesta = teclado.nextInt();
 
                                                 switch (respuesta) {
@@ -130,6 +139,8 @@ public class Vista {
                                                         return Comando.APAGAR_LUCES_GENERAL;
                                                     case 3:
                                                         return Comando.APAGAR_LUCES_ECO;
+                                                    case 4:                                               
+                                                        return Comando.CONSULTAR_ESTADO_GENERAL;
                                                     default:
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
@@ -143,6 +154,8 @@ public class Vista {
                                                 return Comando.APAGAR_VIGILANCIA_SALON;
                                             case 9:
                                                 return Comando.CONSULTAR_VIGILANCIA_SALON;
+                                            case 10:                                               
+                                                return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
@@ -161,6 +174,7 @@ public class Vista {
                                         System.out.println("7.- Iniciar vigilancia");
                                         System.out.println("8.- Detener vigilancia");
                                         System.out.println("9.- Consultar estado de la vigilancia");
+                                        System.out.println("10.- Estado general de la vivienda");
                                         respuesta = teclado.nextInt();
 
                                         switch (respuesta) {
@@ -177,7 +191,8 @@ public class Vista {
                                                 System.out.println("Elige entre unas de las opciones:");
                                                 System.out.println("1.- Apagado de las luces del salón");
                                                 System.out.println("2.- Apagado general de la casa");
-                                                System.out.println("3.- Apagado eco (solo funciona entre las 8 de la mañana y las 6 de la tarde");
+                                                System.out.println("3.- Apagado eco (solo funciona entre las 8 de la mañana y las 6 de la tarde)");
+                                                System.out.println("4.- Estado general de la vivienda");
                                                 respuesta = teclado.nextInt();
 
                                                 switch (respuesta) {
@@ -187,6 +202,8 @@ public class Vista {
                                                         return Comando.APAGAR_LUCES_GENERAL;
                                                     case 3:
                                                         return Comando.APAGAR_LUCES_ECO;
+                                                    case 4:                                               
+                                                        return Comando.CONSULTAR_ESTADO_GENERAL;
                                                     default:
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
@@ -200,11 +217,18 @@ public class Vista {
                                                 return Comando.APAGAR_VIGILANCIA_DORMITORIO;
                                             case 9:
                                                 return Comando.CONSULTAR_VIGILANCIA_DORMITORIO;
+                                            case 10:                                               
+                                                return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
                                         }
                                         break;
+                                    case 4:                                               
+                                            return Comando.CONSULTAR_ESTADO_GENERAL;
+                                    default:
+                                            System.out.println("Ha elegido una opcion que no está en el menú");
+                                            break;
                                 }
                                 break;
 
@@ -217,6 +241,9 @@ public class Vista {
                                 continuar = false;
                                 
                                 return Comando.APAGAR_SISTEMA;
+                            default:
+                                System.out.println("Ha elegido una opcion que no está en el menú");
+                                break;
                         }
                         seguir = false;
 
