@@ -10,15 +10,15 @@ package proyecto;
  * @author andres
  */
 public class Luz {
-    
+    //los atributos
     private boolean estado;
     private double consumo;
-
+    //el constructor
     public Luz(boolean estado, double consumo) {
         this.estado = estado;
         this.consumo = consumo;
     }
-
+    //los getters y setters
     public boolean isEstado() {
         return estado;
     }
@@ -34,7 +34,7 @@ public class Luz {
     public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
-
+    //el toString
     @Override
     public String toString() {
         return "Luz{" + "estado=" + estado + ", consumo=" + consumo + '}';
