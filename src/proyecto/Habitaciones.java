@@ -10,18 +10,18 @@ package proyecto;
  * @author andres
  */
 public class Habitaciones extends Estancia {
-    
+    //los atributos
     private Luz luz;
     private Persiana persiana;
     private Camara camara;
-
+    //el constructor
     public Habitaciones(Luz luz, Persiana persiana, Camara camara, int m2) {
         super(m2);
         this.luz = luz;
         this.persiana = persiana;
         this.camara = camara;
     }
-
+    //getters y setters
     public Luz getLuz() {
         return luz;
     }
@@ -45,7 +45,7 @@ public class Habitaciones extends Estancia {
     public void setCamara(Camara camara) {
         this.camara = camara;
     }
-
+    //el toString
     @Override
     public String toString() {
         return "Habitaciones{" + "luz=" + luz + ", persiana=" + persiana + ", camara=" + camara + '}';
