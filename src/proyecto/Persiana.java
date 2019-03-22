@@ -10,17 +10,17 @@ package proyecto;
  * @author andres
  */
 public class Persiana {
-    
+    //los atributos
     private EstadoPersiana estado;
     private int largo;//cm
     private int ancho;//cm
-
+    //el constructor
     public Persiana(EstadoPersiana estado, int largo, int ancho) {
         this.estado = estado;
         this.largo = largo;
         this.ancho = ancho;
     }
-
+    //los getters y setters
     public EstadoPersiana getEstado() {
         return estado;
     }
@@ -44,7 +44,7 @@ public class Persiana {
     public void setAncho(int ancho) {
         this.ancho = ancho;
     }
-
+    //el toString
     @Override
     public String toString() {
         return "Persiana{" + "estado=" + estado + ", largo=" + largo + ", ancho=" + ancho + '}';
