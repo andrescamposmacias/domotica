@@ -13,7 +13,7 @@ import java.time.LocalTime;
  * @author andres
  */
 public class Central {
-    
+    //declaro las variables
     private Garaje garaje;
     private Salon salon;
     private Dormitorio dormitorio;
@@ -21,12 +21,14 @@ public class Central {
     private LocalDate fechaInstalacion;
     private String identificador;
     
-   public boolean comprobacionUsuario(){
+    //un metodo para comprobar si el usuario de la central es el mismo
+    //que le pasa el Vista.login()
+    public boolean comprobacionUsuario(){
        
        return this.usuario.equals(Vista.login());
     
    } 
-
+    //constructor de central
     public Central(Garaje garaje, Salon salon, Dormitorio dormitorio, Usuario usuario, LocalDate fechaInstalacion, String identificador) {
         this.garaje = garaje;
         this.salon = salon;
@@ -36,11 +38,9 @@ public class Central {
         this.identificador = identificador;
     }
     
-    public Central(Usuario usu){
-        this.usuario = usu;
-    }
-    
+    //metodo para que ejecute la orden segun lo que haya enviado el usuario
     public void ejecutarOrden(Comando instrucciones){
+        //creo un switch que le paso la instruccion que ha seleccionado el usuario
         switch(instrucciones){
             case CONSULTAR_HORA:
                 Reloj.verFecha();
@@ -244,20 +244,21 @@ public class Central {
     
     
     private void apagarLucesGeneral(){
-        //si la luz del salon o del dormitorio es true, entra dentro del true, y cambia
-        //ambos estado a false, sino entra en el else y le indica al usuario que ambas luces
-        //ya estaban apagadas
+        //primero compruebo que ambas luces no esten encendidas
         
         if(!salon.getLuz().isEstado() && !dormitorio.getLuz().isEstado()){
             System.out.println("Las luces del salon y del dormitorio ya estan apagadas\n");
         }
         
+        //luego si la luz del salon esta encendida la apago, si esta apagada
+        //informo al usuario
         if(salon.getLuz().isEstado()){
             salon.getLuz().setEstado(false);
             System.out.println("Apagando las luces del salon\n");
         }else{
             System.out.println("Las lueces del salon ya estan apagadas");
         }
+        //y despues compruebo la del dormitorio
         if (dormitorio.getLuz().isEstado()){           
             dormitorio.getLuz().setEstado(false);
             System.out.println("Apagando las luces del dormitorio\n");
@@ -457,7 +458,7 @@ public class Central {
         LocalTime ahora = LocalTime.now();
         
         //si horaManiana es antes que ahora y horaTarde despues de ahora comprueba que las persinas entra dentro
-        // del if y compruebas que la persiana no esten subidas, y por ultimo comprueba que la luz este encendida, si esta
+        //del if y compruebas que la persiana no esten subidas, y por ultimo comprueba que la luz este encendida, si esta
         //encendida la apaga
         if (horaManiana.isBefore(ahora) && horaTarde.isAfter(ahora)) {
             if (salon.getPersiana().getEstado() == salon.getPersiana().getEstado().SUBIDA) {
