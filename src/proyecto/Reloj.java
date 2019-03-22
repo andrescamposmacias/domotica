@@ -9,13 +9,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reloj {
+    //2 atributos staticos LocalTime y LocalDate
     private static LocalTime hora = LocalTime.now();
     private static LocalDate fecha = LocalDate.now();
 
+    //un metodo verHora para que se muestre la hora de hoy
     public static void verHora() {
         System.out.println("La hora es: " + hora.getHour() + ":"+ hora.getMinute()+ ":" + hora.getSecond());
     }
     
+    //metedo para saber la fecha
     public static void verFecha(){
         System.out.println("La fecha es:  " + fecha);
     }
