@@ -13,13 +13,15 @@ import java.util.Scanner;
  * @author Andres
  */
 public class Vista {
-
+    //declaro las variables
     private static Scanner teclado = new Scanner(System.in);
     private static int respuesta;
     private static String usuario;
     private static String passwd;
     public static boolean continuar = true;
     
+    //metodo para que el usuario introduzca un usuario y contraseña
+    //cree en usuario y lo devuelva
     public static Usuario login(){
         
         System.out.println("Introduce el usuario");
@@ -34,10 +36,14 @@ public class Vista {
         
     }
 
+    //metodo menu
     public static Comando menu() {
-
+                
+                //creo un boolean para el bucle
                 boolean seguir = true;
                 do {
+                    //meto un try catch por si el usuario en lugar de un numero
+                    //pone una letra
                     try {
                         System.out.println("Bienvenido al menú de la vivienda");
                         System.out.println("-----------------------");
@@ -64,6 +70,7 @@ public class Vista {
                                     case 2:                                               
                                         return Comando.CONSULTAR_ESTADO_GENERAL;
                                     default:
+                                        seguir = true;
                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                         break;
                                 }
@@ -96,6 +103,7 @@ public class Vista {
                                             case 4:                                               
                                                 return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
+                                                seguir = true;
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
                                         }
@@ -142,6 +150,7 @@ public class Vista {
                                                     case 4:                                               
                                                         return Comando.CONSULTAR_ESTADO_GENERAL;
                                                     default:
+                                                        seguir = true;
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
                                                 }
@@ -157,6 +166,7 @@ public class Vista {
                                             case 10:                                               
                                                 return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
+                                                seguir = true;
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
                                         }
@@ -205,6 +215,7 @@ public class Vista {
                                                     case 4:                                               
                                                         return Comando.CONSULTAR_ESTADO_GENERAL;
                                                     default:
+                                                        seguir = true;
                                                         System.out.println("Ha elegido una opcion que no está en el menú");
                                                         break;
                                                 }
@@ -220,6 +231,7 @@ public class Vista {
                                             case 10:                                               
                                                 return Comando.CONSULTAR_ESTADO_GENERAL;
                                             default:
+                                                seguir = true;
                                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                                 break;
                                         }
@@ -227,6 +239,7 @@ public class Vista {
                                     case 4:                                               
                                             return Comando.CONSULTAR_ESTADO_GENERAL;
                                     default:
+                                            seguir = true;
                                             System.out.println("Ha elegido una opcion que no está en el menú");
                                             break;
                                 }
@@ -242,17 +255,19 @@ public class Vista {
                                 
                                 return Comando.APAGAR_SISTEMA;
                             default:
+                                seguir = true;
                                 System.out.println("Ha elegido una opcion que no está en el menú");
                                 break;
                         }
-                        seguir = false;
+                        
 
                     } catch (InputMismatchException ime) {
                         System.out.println("Te has equivocado, vuelve a intentarlo");
                         teclado.nextLine();
                     }
                 } while (seguir);
-
+        //nunca retornara null, ya que se seguira repitiendo el bucle
+        //hasta que el usuario seleccione una opcion del menu
         return null;
     }
     
