@@ -9,7 +9,10 @@ package proyecto;
  *
  * @author Andrés
  */
+//creo un enum para el estado de la persiana
 public enum EstadoPersiana {
+    //los estados solo seran subida, bajada o media_altura
+    //no es posible que haya otro estado
     SUBIDA,
     BAJADA,
     MEDIA_ALTURA;
