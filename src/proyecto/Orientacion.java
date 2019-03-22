@@ -9,11 +9,12 @@ package proyecto;
  *
  * @author andres
  */
+//creo un enum de orientacion para que solo valga 1 de las 4 orientaciones
 public enum Orientacion {
     
-    NORTE(),
-    SUR(),
-    ESTE(),
-    OESTE();
+    NORTE,
+    SUR,
+    ESTE,
+    OESTE;
      
 }
