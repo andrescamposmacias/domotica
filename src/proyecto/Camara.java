@@ -10,15 +10,17 @@ package proyecto;
  * @author andres
  */
 public class Camara {
-    
+    //creo los atributos
     private boolean estado;
     private String ip; //direccion ip de la camara
 
+    //creo el constructor
     public Camara(boolean estado, String ip) {
         this.estado = estado;
         this.ip = ip;
     }
 
+    //los getters y los setters
     public boolean isEstado() {
         return estado;
     }
@@ -35,6 +37,7 @@ public class Camara {
         this.ip = ip;
     }
 
+    //el toString
     @Override
     public String toString() {
         return "Camara{" + "estado=" + estado + ", ip=" + ip + '}';
