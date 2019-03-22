@@ -12,12 +12,12 @@ import java.util.Objects;
  * @author andres
  */
 public class Usuario {
-    
+    //2 atributos String
     private String usuario;
     private String password;
 
     
-
+    //el hashCode para saber si son iguales
     @Override
     public int hashCode() {
         int hash = 7;
@@ -46,7 +46,7 @@ public class Usuario {
         return true;
     }
     
-    
+    //getters y setters
     public String getUsuario() {
         return usuario;
     }
@@ -62,7 +62,7 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+    //el constructor
     public Usuario(String usu, String pass){
         usuario = usu;
         password = pass;
