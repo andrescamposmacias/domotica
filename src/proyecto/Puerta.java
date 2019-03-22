@@ -10,24 +10,25 @@ package proyecto;
  * @author andres
  */
 public class Puerta {
-    
+    //los atributos
     private boolean estado;
     private int retardo;// segundos
     
     //java crea un constructor por defecto
     //si no implementamos ninguno
 
+    //el constructor parametrizado
     public Puerta(boolean estado, int retardo) {
         this.estado = estado;
         this.retardo = retardo;
     }
-    
+    //el constructor por defecto
     public Puerta() {
         this.estado = true;
         this.retardo = 5;
     }
     
-
+    //getters y setters
     public boolean isEstado() {
         return estado;
     }
@@ -43,7 +44,7 @@ public class Puerta {
     public void setRetardo(int retardo) {
         this.retardo = retardo;
     }
-
+    //el toString
     @Override
     public String toString() {
         return "Puerta{" + "estado=" + estado + ", retardo=" + retardo + '}';
