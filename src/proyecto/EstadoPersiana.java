@@ -7,7 +7,7 @@ package proyecto;
 
 /**
  *
- * @author Andrés
+ * @author Andrés y Diego
  */
 //creo un enum para el estado de la persiana
 public enum EstadoPersiana {
