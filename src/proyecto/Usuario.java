@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 public class Usuario {
     //2 atributos String
