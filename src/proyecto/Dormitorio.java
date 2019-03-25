@@ -7,8 +7,10 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
+
+//subclase de habitaciones
 public class Dormitorio extends Habitaciones{
     //creo un atributo de orientacion que es un enum
     //para asegurarme que la orientacion solo pueda ser
