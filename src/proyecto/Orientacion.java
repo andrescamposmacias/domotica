@@ -7,7 +7,7 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 //creo un enum de orientacion para que solo valga 1 de las 4 orientaciones
 public enum Orientacion {
