@@ -5,13 +5,14 @@
  */
 package proyecto;
 
+/**
+ *
+ * @author Andrés y Diego
+ */
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-/**
- *
- * @author andres
- */
+
 public class Central {
     //declaro las variables
     private Garaje garaje;
