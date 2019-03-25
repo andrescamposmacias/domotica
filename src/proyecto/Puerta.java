@@ -7,15 +7,12 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 public class Puerta {
     //los atributos
     private boolean estado;
     private int retardo;// segundos
-    
-    //java crea un constructor por defecto
-    //si no implementamos ninguno
 
     //el constructor parametrizado
     public Puerta(boolean estado, int retardo) {
