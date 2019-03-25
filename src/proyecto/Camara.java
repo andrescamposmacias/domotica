@@ -7,7 +7,7 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 public class Camara {
     //creo los atributos
