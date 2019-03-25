@@ -7,8 +7,10 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
+
+//una subclase de habitaciones
 public class Salon extends Habitaciones {
     //el atributo
     private boolean terraza;
