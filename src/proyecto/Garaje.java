@@ -7,7 +7,7 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 //la clase garaje es un subtipo o subclase de estancia
 //Garaje entiende (hereda) a Estancia
