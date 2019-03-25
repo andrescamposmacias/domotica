@@ -7,7 +7,7 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
 public class Estancia {
     //creo el atributo
