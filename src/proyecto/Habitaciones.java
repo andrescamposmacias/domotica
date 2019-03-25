@@ -7,8 +7,10 @@ package proyecto;
 
 /**
  *
- * @author andres
+ * @author Andrés y Diego
  */
+
+//es una subclase de estancia
 public class Habitaciones extends Estancia {
     //los atributos
     private Luz luz;
