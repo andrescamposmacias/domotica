@@ -5,6 +5,10 @@
  */
 package proyecto;
 
+/**
+ *
+ * @author Andrés y Diego
+ */
 import java.time.LocalDate;
 import java.time.LocalTime;
 
